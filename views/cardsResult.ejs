@@ -1,0 +1,23 @@
+<%- include ('templates/header'); -%>
+    
+    <div class='jumbotron'>
+        <h1>Your Results</h1>
+        <div class="row">
+        <%result.forEach(function(r){%>
+        <div id="cardsResults">
+            <label class="nameTitle"><%=r.cardName%></label> <br>
+            Rarity: <%=r.rarity%> <br>
+            Cost: <%=r.cost%> <br>
+            Type: <%=r.category%> <br>
+            Offense Rating: <%=r.offense%> <br>
+            Deffense Rating: <%=r.defense%> <br>
+            <img src='<%=r.image%>'> <br>
+            <div class="container">Description: <%=r.description%></div>
+        </div>   
+        <%});%>
+        </div>
+        
+        <a class='btn btn-info' href='/cards'>Go Back</a>
+    </div>
+    
+<%- include ('templates/footer'); -%>

@@ -1,81 +1,15 @@
 <%- include ('templates/header'); -%>
-<div class="container">
-    <div class ="jumbotron">
-        <h1 class="center">Category</h1>
-        <br><form action='/category' method='GET'>
-			<div class='form-group row'>
-				<div class='col-sm-12'>
-					<select id="category" name="category">
-						<% categories.forEach(function(category){%>
-				            <option id="category" name ="category" value='<%=category%>'><%=category%></option>
-				        <% });%>
-					</select>
-				</div>
-			</div>
-			<div class='form-group row'>
-				<div class='col-sm-12'>
-					<button class='btn btn-secondary'>Search</button>
-				</div>
-			</div>
-		</form>
-    </div>
+
+<div class='container'>
+	<div class='jumbotron'>
+		<h3> Clash Royale Database and Deck Builder </h3>
+		<a class='btn btn-primary' href='/login'>Login</a>
+		<a class='btn btn-secondary' href='/register'>Register</a>
+		<a class='btn btn-info' href='/cards'>Search for Cards Available</a>
+		<a class='btn btn-info' href='/reddit'>Go to Reddit</a>
+	</div>
 </div>
-<div class="container">
-    <div class ="jumbotron">
-        <h1 class="center"> Author Name </h1>
-        <br><form action='/author' method='GET'>
-			<div class='form-group row'>
-				<div class='col-sm-12'>
-					<select id="name" name="name">
-						<% names.forEach(function(name){%>
-				            <option id="name" name ="name" value='<%=name%>'><%=name%></option>
-				        <% });%>
-					</select>
-				</div>
-			</div>
-			<div class='form-group row'>
-				<div class='col-sm-12'>
-					<button class='btn btn-primary'>Search</button>
-				</div>
-			</div>
-		</form>
-    </div>
-</div>
-<div class="container">
-    <div class ="jumbotron">
-        <h1 class="center"> Keyword </h1>
-        <br><form action='/keyword' method="GET" >
-            <div class="form-group row">
-            	<div class="col-sm-5"></div>
-                <div class='col-sm-2'>
-                	<input type="text" class="form-control" id="keyword" name="keyword">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class='col-sm-12'>
-					<button class='btn btn-light'>Search</button>
-				</div>
-            </div>          
-        </form>
-    </div>
-</div>
-<div class="container">
-    <div class ="jumbotron">
-        <h1 class="center"> Gender </h1>
-        <br><form action='/gender' method='GET'>
-			<div class='form-group row'>
-				<div class='col-sm-12'>
-					Male <input type="radio" id="male" name="gender" value="M" required>
-					Female <input type="radio" id="female" name="gender" value="F" required>
-				</div>
-			</div>
-			<div class='form-group row'>
-				<div class='col-sm-12'>
-					<button class='btn btn-dark'>Search</button>
-				</div>
-			</div>
-		</form>
-    </div>
-</div>
+
+<img src="https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c51a.png">
 
 <%- include ('templates/footer'); -%>

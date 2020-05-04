@@ -1,0 +1,220 @@
+<%- include ('templates/header'); -%>
+
+<!--create deck and edit deck -->
+
+<div class='container'>
+	<div class='jumbotron'>
+		<h3> My Deck </h3>
+		<a class='btn btn-danger' href='/logout'>Logout</a>
+	</div>
+	
+	<h4>Welcome <%=user%>!!!</h4>
+	
+	<div>
+		<h5>Your Deck!</h5>
+		
+		
+		<div class="container">
+			<div class="row">
+			<% for(var i = 1; i <= 8; i++){ %>
+			<% if(i == 1){ %>
+			<%  	result.forEach(function(r){ %>
+			<% 		if(r.cardId == result2.card1){ %>
+						<div class="col">
+						<img src= <%=r.image%>> <br>
+						<h5 class="cname"> <%= r.cardName %> </h5>
+						</div>
+					<% } %>
+			<%	}); %>
+			<% }else if(i == 2){ %>
+			<%	result.forEach(function(r){ %>
+			<%		if(r.cardId == result2.card2){ %>
+						<div class="col">
+						<img src= <%=r.image%>> <br>
+						<h5 class="cname"> <%= r.cardName %> </h5>
+						</div>
+					<% } %>
+			<%	}); %>
+			<% }else if(i == 3){ %>
+			<%	result.forEach(function(r){ %>
+			<%		if(r.cardId == result2.card3){ %>
+						<div class="col">
+						<img src= <%=r.image%>> <br>
+						<h5 class="cname"> <%= r.cardName %> </h5>
+						</div>
+					<% } %>
+			<% 	}); %>
+			<% }else if(i == 4){ %>
+			<%	result.forEach(function(r){ %>
+			<%		if(r.cardId == result2.card4){ %>
+						<div class="col">
+						<img src= <%=r.image%>> <br>
+						<h5 class="cname"> <%= r.cardName %> </h5>
+						</div>
+					<% } %>
+			<%	}); %>
+			<% }else if(i == 5){ %>
+			<%	result.forEach(function(r){ %>
+			<%		if(r.cardId == result2.card5){ %>
+						<div class="col">
+						<img src= <%=r.image%>> <br>
+						<h5 class="cname"> <%= r.cardName %> </h5>
+						</div>
+					<% } %>
+			<%	}); %>
+			<% }else if(i == 6){ %>
+				<% result.forEach(function(r){ %>
+					<% if(r.cardId == result2.card6){ %>
+						<div class="col">
+						<img src= <%=r.image%>> <br>
+						<h5 class="cname"> <%= r.cardName %> </h5>
+						</div>
+					<% } %>
+			<%	}); %>
+			<% }else if(i == 7){ %>
+				<% result.forEach(function(r){ %>
+					<% if(r.cardId == result2.card7){ %>
+						<div class="col">
+						<img src= <%=r.image%>> <br>
+						<h5 class="cname"> <%= r.cardName %> </h5>
+						</div>
+					<% } %>
+				<% }); %>
+			<% }else if(i == 8){ %>
+				<%result.forEach(function(r){ %>
+					<%if(r.cardId == result2.card8){ %>
+						<div class="col">
+						<img src= <%=r.image%>> <br>
+						<h5 class="cname"> <%= r.cardName %> </h5>
+						</div>
+					<% } %>
+				<% }); %>
+			<% } %>
+		 <% } %>
+		 <br>
+			</div>
+			<%
+				console.log(result);
+				function oRating(currCard){
+					let off = 1;
+				   result.forEach(function(r){
+				       if(r.cardId == currCard){
+				        	off = r.offense;
+				       }
+				   });
+				   return off;
+				}
+				
+				function dRating(currCard){
+					let def = 1;
+				   	result.forEach(function(r){
+				       if(r.cardId == currCard){
+				           def = r.defense;
+				       }
+					});
+					return def;
+				}
+				
+				let card1O = oRating(result2.card1);
+				let card2O = oRating(result2.card2);
+				let card3O = oRating(result2.card3);
+				let card4O = oRating(result2.card4);
+				let card5O = oRating(result2.card5);
+				let card6O = oRating(result2.card6);
+				let card7O = oRating(result2.card7);
+				let card8O = oRating(result2.card8);
+				
+				let card1D = dRating(result2.card1);
+				let card2D = dRating(result2.card2);
+				let card3D = dRating(result2.card3);
+				let card4D = dRating(result2.card4);
+				let card5D = dRating(result2.card5);
+				let card6D = dRating(result2.card6);
+				let card7D = dRating(result2.card7);
+				let card8D = dRating(result2.card8);
+				
+				
+				//console.log(card1O);
+				let offenseAvg = (card1O + card2O + card3O + card4O + card5O + card6O + card7O + card8O) / 8;
+				let defenseAvg = (card1D + card2D + card3D + card4D + card5D + card6D + card7D + card8D) / 8;
+						
+			%>
+		</div>
+		
+		<h2 class="cname">Offense Rating: <label id="oRating"><%=offenseAvg%></label></h2>
+		<h2 class="cname">Defense Rating: <label id="dRating"><%=defenseAvg%></label></h2>
+	</div>
+	
+	<br>
+	
+	<br>
+	<br>
+	<br>
+	
+	<form action="/myDeck" method = "POST">
+		<select id="card1" name="card1">
+			<option value=11>Select your Card</option>
+			<% result.forEach(function(r){ %>
+			<option value=<%=r.cardId%>><%=r.cardName%></option>
+			<% }); %>
+		</select>
+		<select id="card2" name="card2">
+			<option value=11>Select your Card</option>
+			<% result.forEach(function(r){ %>
+			<option value=<%=r.cardId%>><%=r.cardName%></option>
+			<% }); %>
+		</select>
+		<select id="card3" name="card3">
+			<option value=11>Select your Card</option>
+			<% result.forEach(function(r){ %>
+			<option value=<%=r.cardId%>><%=r.cardName%></option>
+			<% }); %>
+		</select>
+		<select id="card4" name="card4">
+			<option value=11>Select your Card</option>
+			<% result.forEach(function(r){ %>
+			<option value=<%=r.cardId%>><%=r.cardName%></option>
+			<% }); %>
+		</select>
+		<select id="card5" name="card5">
+			<option value=11>Select your Card</option>
+			<% result.forEach(function(r){ %>
+			<option value=<%=r.cardId%>><%=r.cardName%></option>
+			<% }); %>
+		</select>
+		<select id="card6" name="card6">
+			<option value=11>Select your Card</option>
+			<% result.forEach(function(r){ %>
+			<option value=<%=r.cardId%>><%=r.cardName%></option>
+			<% }); %>
+		</select>
+		<select id="card7" name="card7">
+			<option value=11>Select your Card</option>
+			<% result.forEach(function(r){ %>
+			<option value=<%=r.cardId%>><%=r.cardName%></option>
+			<% }); %>
+		</select>
+		<select id="card8" name="card8">
+			<option value=11>Select your Card</option>
+			<% result.forEach(function(r){ %>
+			<option value=<%=r.cardId%>><%=r.cardName%></option>
+			<% }); %>
+		</select>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class='form-group row'>
+			<div class='col-sm-4'></div>
+			<div class='col-sm-4'>
+				<button class='btn btn-primary btn-block'>Update your deck</button>
+			</div>
+			<div class='col-sm-4'></div>
+		</div>
+		
+	</form>
+</div>
+
+<a id= 'delete' class='btn btn-danger' href='/deleteAccount'>Delete Account</a>
+
+<%- include ('templates/footer'); -%>

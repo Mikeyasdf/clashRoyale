@@ -1,6 +1,7 @@
 body{
 	margin: 10px 0px auto auto;
 	text-align: center;
+	background-color: rgb(36, 36, 36);
 }
 
 .notfound {
@@ -22,4 +23,27 @@ body{
 .info > .bio {
 	margin-top: 30px;
 	margin-bottom: 30px;
+}
+
+#cardsResults {
+	text-align: center;
+	font-size:20px;
+}
+
+.nameTitle {
+	font-size:30px;
+	font:strong;
+}
+
+.container, .jumbotron{
+	font-family: 'Alfa Slab One';
+}
+
+.cname {
+	color: yellow;
+	font-family: 'Alfa Slab One';
+}
+
+#delete, #search, #back{
+	font-family: 'Alfa Slab One';
 }
